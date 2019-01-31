@@ -88,6 +88,10 @@ module ActiveRecordCleanDbStructure
 
       # Reduce 2+ lines of whitespace to one line of whitespace
       dump.gsub!(/\n{2,}/m, "\n\n")
+
+      # Fix default dates
+      dump.gsub!(/DEFAULT '\d{4}-\d{1,2}-\d{1,2} \d{1,2}:\d{1,2}:\d{1,2}.\d{1,6}'/, "DEFAULT '2015-09-10 11:12:13'")
+      dump.gsub!(/DEFAULT '\d{4}-\d{1,2}-\d{1,2} \d{1,2}:\d{1,2}:\d{1,2}'/, "DEFAULT '2015-09-10 11:12:13'")
     end
   end
 end
